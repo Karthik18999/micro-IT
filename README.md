@@ -1,35 +1,34 @@
-<!-- index.html -->
+<!-- calculator.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
+  <title>Calculator</title>
   <style>
-    body { font-family: Arial; padding: 20px; background: #f4f4f4; }
-    h1, h2 { color: #333; }
-    .section { margin-bottom: 30px; }
+    input, button { margin: 5px; padding: 10px; font-size: 16px; }
   </style>
 </head>
 <body>
-  <h1>My Portfolio</h1>
+  <h2>Simple Calculator</h2>
+  <input type="number" id="num1" placeholder="Number 1">
+  <input type="number" id="num2" placeholder="Number 2"><br>
+  <button onclick="calculate('+')">+</button>
+  <button onclick="calculate('-')">-</button>
+  <button onclick="calculate('*')">*</button>
+  <button onclick="calculate('/')">/</button>
+  <p id="result"></p>
 
-  <div class="section">
-    <h2>About Me</h2>
-    <p>Hello! I'm an aspiring web developer.</p>
-  </div>
-
-  <div class="section">
-    <h2>Projects</h2>
-    <ul>
-      <li>Calculator</li>
-      <li>To-Do List</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>Contact</h2>
-    <p>Email: example@example.com</p>
-  </div>
+  <script>
+    function calculate(op) {
+      const n1 = parseFloat(document.getElementById('num1').value);
+      const n2 = parseFloat(document.getElementById('num2').value);
+      let res = 0;
+      if (op === '+') res = n1 + n2;
+      if (op === '-') res = n1 - n2;
+      if (op === '*') res = n1 * n2;
+      if (op === '/') res = n1 / n2;
+      document.getElementById('result').innerText = `Result: ${res}`;
+    }
+  </script>
 </body>
 </html>
